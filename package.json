@@ -1,0 +1,31 @@
+{
+  "name": "bigfiles-client-node",
+  "version": "0.0.2",
+  "description": "Javascript client library for bigfiles.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Daniel Jhin Yoo <danieljyoo@gmail.com> (https://github.com/danieljyoo)",
+  "license": "MIT",
+  "homepage": "https://github.com/danieljyoo/bigfiles-client-node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danieljyoo/bigfiles-client-node.git"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "is-stream": "^1.1.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "bigfiles-server-node": "0.0.1",
+    "jest": "^21.2.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
