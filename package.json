@@ -1,6 +1,6 @@
 {
   "name": "bigfiles-client-node",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Javascript client library for bigfiles.io",
   "main": "index.js",
   "scripts": {
@@ -16,13 +16,14 @@
   },
   "dependencies": {
     "dotenv": "^6.0.0",
+    "fs-extra": "^7.0.0",
     "is-stream": "^1.1.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "bigfiles-server-node": "0.0.1",
+    "bigfiles-server-node": "0.0.3",
     "jest": "^21.2.1"
   },
   "jest": {
