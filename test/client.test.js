@@ -1,4 +1,5 @@
 require('dotenv').config()
+const fs = require('fs')
 const path = require('path')
 const bigfiles = require('../lib/client')
 
@@ -13,17 +14,17 @@ const TESTKEY = 'image.test.jpg'
 
 // Small file upload tests
 const TESTSMALLFILE = path.join(__dirname, 'image.small.jpg')
-const TESTSMALLKEY = 'images.small.jpg'
+const TESTSMALLKEY = 'image.small.jpg'
+
+// Stream Keys
+const TESTKEYSTREAM = 'image.stream.jpg'
+const TESTSMALLKEYSTREAM = 'image.small.stream.jpg'
 
 const APIKEY = process.env.BIGFILES_APIKEY
 
-describe('Multipart Upload File', () => {
+describe('Upload File', () => {
   var uploadid = null
   
-  // beforeEach(async () => {
-
-  // })
-
   it ('should upload a > 5MB image file', async () => {
     var res = await server.start(TESTBUCKET, TESTKEY, TESTMIMETYPE)
     console.log("LARGERES", res)
@@ -39,6 +40,28 @@ describe('Multipart Upload File', () => {
     var uploadid = res.id
 
     var res = await bigfiles.upload(uploadid, TESTSMALLFILE, { content_type: TESTMIMETYPE })
+    console.log("SMALLRES", res)
+  })
+})
+
+describe('Upload Stream', () => {
+  var uploadid = null
+
+  it ('should upload a > 5MB image stream', async () => {
+    var res = await server.start(TESTBUCKET, TESTKEYSTREAM, TESTMIMETYPE)
+    console.log("LARGERES", res)
+    var uploadid = res.id
+
+    var res = await bigfiles.upload(uploadid, fs.createReadStream(TESTFILE))
+    console.log("RES", res)
+  }, 5 * 60 * 1000)
+
+  it ('should upload a < 5MB image stream', async () => {
+    var res = await server.start(TESTBUCKET, TESTSMALLKEYSTREAM, TESTMIMETYPE)
+    console.log("SMALLMULT", res)
+    var uploadid = res.id
+
+    var res = await bigfiles.upload(uploadid, fs.createReadStream(TESTSMALLFILE), { content_type: TESTMIMETYPE })
     console.log("SMALLRES", res)
   })
 })

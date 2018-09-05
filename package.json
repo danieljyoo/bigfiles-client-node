@@ -1,6 +1,6 @@
 {
   "name": "bigfiles-client-node",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Javascript client library for bigfiles.io",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "url": "https://github.com/danieljyoo/bigfiles-client-node.git"
   },
   "dependencies": {
+    "awaitify-stream": "^1.0.1",
     "dotenv": "^6.0.0",
     "fs-extra": "^7.0.0",
     "is-stream": "^1.1.0",
