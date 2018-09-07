@@ -1,6 +1,6 @@
 {
   "name": "bigfiles-client-node",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Javascript client library for bigfiles.io",
   "main": "index.js",
   "scripts": {
